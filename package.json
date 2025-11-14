@@ -11,7 +11,15 @@
         "lint:check": "eslint .",
         "lint:fix": "eslint --fix .",
         "test": "mocha tests/*.test.js --exit",
-        "configure-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\""
+        "configure-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
+        "setup": "chmod +x setup.sh && ./setup.sh",
+        "generate-tokens": "node scripts/generate-tokens.js",
+        "quick-test": "node scripts/quick-test.js",
+        "health": "curl -s http://localhost:3333/health/detailed | json_pp || curl -s http://localhost:3333/health",
+        "docker:up": "docker-compose up -d",
+        "docker:down": "docker-compose down",
+        "docker:logs": "docker-compose logs -f",
+        "docker:dev": "docker-compose -f docker-compose.dev.yml up"
     },
     "husky": {
         "hooks": {
