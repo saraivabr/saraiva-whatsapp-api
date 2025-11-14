@@ -115,7 +115,27 @@ Esta solução permite criar:
 
 ## 🚀 Instalação
 
-### Via NPM
+> 💡 **Dica:** Veja o [QUICK_START.md](QUICK_START.md) para começar em 5 minutos!
+
+### ⚡ Setup Automático (Recomendado)
+
+O jeito mais fácil de começar:
+
+```bash
+git clone https://github.com/saraivabr/saraiva-whatsapp-api.git
+cd saraiva-whatsapp-api
+npm run setup
+```
+
+O script interativo vai:
+- ✅ Verificar requisitos (Node.js, npm)
+- ✅ Gerar tokens seguros automaticamente
+- ✅ Criar arquivo `.env` configurado
+- ✅ Instalar todas as dependências
+- ✅ Criar diretórios necessários
+- ✅ Perguntar se quer iniciar o servidor
+
+### Via NPM (Manual)
 
 1. **Clone o repositório**
 
@@ -134,9 +154,9 @@ npm install
 
 ```bash
 cp .env.example .env
+# Edite .env e configure seus tokens
+# Ou gere tokens automaticamente: npm run generate-tokens
 ```
-
-Edite o arquivo `.env` conforme suas necessidades (veja [Configuração](#-configuração))
 
 4. **Inicie o servidor**
 
