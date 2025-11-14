@@ -1,0 +1,98 @@
+version: '3.8'
+
+services:
+  # Serviço principal da API
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: saraiva-whatsapp-api
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3333}:${PORT:-3333}"
+    environment:
+      # Configurações de segurança
+      - TOKEN=${TOKEN:-YOUR_TOKEN_HERE}
+      - PROTECT_ROUTES=${PROTECT_ROUTES:-true}
+      - ADMINTOKEN=${ADMINTOKEN:-YOUR_ADMIN_TOKEN}
+      - MAX_INSTANCES=${MAX_INSTANCES:-50}
+
+      # Configurações da aplicação
+      - PORT=${PORT:-3333}
+      - NODE_ENV=${NODE_ENV:-production}
+      - APP_URL=${APP_URL:-http://localhost:3333}
+      - RESTORE_SESSIONS_ON_START_UP=${RESTORE_SESSIONS_ON_START_UP:-true}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+
+      # Configurações de sessão
+      - USER=${USER:-admin}
+      - PASSWORD=${PASSWORD:-adminpass}
+      - SESSION_SECRET=${SESSION_SECRET:-your-session-secret-here}
+      - COOKIE_SECRET=${COOKIE_SECRET:-your-cookie-secret-here}
+
+      # Configurações de mídia
+      - videoMimeTypes=${videoMimeTypes:-video/mp4,video/avi,video/mkv,video/quicktime}
+      - audioMimeTypes=${audioMimeTypes:-audio/mp3,audio/wav,audio/ogg,audio/mpeg}
+      - documentMimeTypes=${documentMimeTypes:-application/pdf,application/msword}
+      - imageMimeTypes=${imageMimeTypes:-image/jpeg,image/png,image/gif}
+      - DEFAULT_AUDIO_OUTPUT=${DEFAULT_AUDIO_OUTPUT:-OGG}
+
+      # Configurações de CORS (opcional)
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-}
+    volumes:
+      # Persiste as sessões do WhatsApp
+      - ./sessions:/app/sessions
+      # Persiste os arquivos temporários
+      - ./temp:/app/temp
+      # Logs da aplicação (opcional)
+      - ./logs:/app/logs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:${PORT:-3333}/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - saraiva-network
+
+  # Nginx como proxy reverso (opcional, para produção)
+  nginx:
+    image: nginx:alpine
+    container_name: saraiva-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - api
+    networks:
+      - saraiva-network
+    profiles:
+      - production
+
+  # Watchtower para atualizações automáticas (opcional)
+  watchtower:
+    image: containrrr/watchtower
+    container_name: saraiva-watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_CLEANUP=true
+      - WATCHTOWER_POLL_INTERVAL=86400 # 24 horas
+    networks:
+      - saraiva-network
+    profiles:
+      - production
+
+networks:
+  saraiva-network:
+    driver: bridge
+
+volumes:
+  sessions:
+  temp:
+  logs:

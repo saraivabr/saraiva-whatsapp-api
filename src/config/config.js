@@ -1,10 +1,12 @@
-// Port number
-const PORT = process.env.PORT || '3333'
-const TOKEN = process.env.TOKEN || ''
-const ADMINTOKEN = process.env.ADMINTOKEN || ''
+const { validatePort, validateLogLevel, validateOptional } = require('./env.validator');
+
+// Configurações de Porta e Autenticação
+const PORT = validatePort(process.env.PORT || '3333');
+const TOKEN = process.env.TOKEN || '';
+const ADMINTOKEN = process.env.ADMINTOKEN || '';
 const PROTECT_ROUTES = !!(
     process.env.PROTECT_ROUTES && process.env.PROTECT_ROUTES === 'true'
-)
+);
 
 const RESTORE_SESSIONS_ON_START_UP = !!(
     process.env.RESTORE_SESSIONS_ON_START_UP &&
@@ -18,7 +20,7 @@ const imageMimeTypes = process.env.imageMimeTypes?.split(',')
 const IGNORE_GROUPS = process.env.IGNORE_GROUPS
 const APP_URL = process.env.APP_URL || false
 
-const LOG_LEVEL = process.env.LOG_LEVEL
+const LOG_LEVEL = validateLogLevel(process.env.LOG_LEVEL || 'info');
 
 const INSTANCE_MAX_RETRY_QR = process.env.INSTANCE_MAX_RETRY_QR || 2
 
