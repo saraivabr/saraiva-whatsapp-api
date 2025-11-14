@@ -1,0 +1,47 @@
+# Docker Compose para Desenvolvimento
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: saraiva-whatsapp-api-dev
+    restart: unless-stopped
+    ports:
+      - "3333:3333"
+    environment:
+      - NODE_ENV=development
+      - PORT=3333
+      - TOKEN=dev-token-insecure
+      - PROTECT_ROUTES=false
+      - ADMINTOKEN=dev-admin-token
+      - MAX_INSTANCES=10
+      - RESTORE_SESSIONS_ON_START_UP=true
+      - LOG_LEVEL=debug
+      - USER=admin
+      - PASSWORD=admin
+      - SESSION_SECRET=dev-session-secret-not-secure
+      - COOKIE_SECRET=dev-cookie-secret-not-secure
+      - videoMimeTypes=video/mp4,video/avi,video/mkv,video/quicktime
+      - audioMimeTypes=audio/mp3,audio/wav,audio/ogg,audio/mpeg
+      - documentMimeTypes=application/pdf,application/msword
+      - imageMimeTypes=image/jpeg,image/png,image/gif
+      - DEFAULT_AUDIO_OUTPUT=OGG
+    volumes:
+      # Hot reload - monta o código fonte
+      - ./src:/app/src
+      - ./package.json:/app/package.json
+      # Persiste dados em desenvolvimento
+      - ./sessions:/app/sessions
+      - ./temp:/app/temp
+      - ./logs:/app/logs
+      # Evita sobreescrever node_modules
+      - /app/node_modules
+    command: npm run dev
+    networks:
+      - dev-network
+
+networks:
+  dev-network:
+    driver: bridge

@@ -1,212 +1,520 @@
-<h2 tabindex="-1" dir="auto" data-react-autofocus="true"><a id="user-content-whatsapp-api-nodejs" class="anchor" aria-hidden="true" tabindex="-1" href="#whatsapp-api-nodejs"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>WhatsApp-hard - Api - NodeJs MultiDevice</h2>
-<p dir="auto">Esta api é uma implementação do <a href="https://github.com/WhiskeySockets/Baileys">WhiskeySockets Baileys</a>, como um serviço RestFull Api, que controla funções do WhatsApp.<br>
-Este código tem como base principal o projeto <a href="https://github.com/salman0ansari/whatsapp-api-nodejs">Whatsapp-api-nodejs</a> que foi atualizado e melhorado com o tempo.	
-Com este código, você pode criar chats de multiserviço, bots de serviço ou qualquer outro sistema que utilize o WhatsApp. Com este código, você não precisa conhecer JavaScript para Node.js, basta iniciar o servidor e fazer as solicitações na linguagem com a qual você se sentir mais confortável.</p>
+<div align="center">
 
-<h2 tabindex="-1" dir="auto"><a id="user-content-infrastructure" class="anchor" aria-hidden="true" tabindex="-1" href="#infrastructure"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Intalação:</h2>
+# 🚀 Saraiva WhatsApp API
 
-<h3 tabindex="-1" dir="auto" data-react-autofocus="true"><a id="user-content-1-docker-installation" class="anchor" aria-hidden="true" tabindex="-1" href="#1-docker-installation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>NPM install:</h3>
+### API REST Multi-Device para WhatsApp
 
-<ul dir="auto">
-<li>Faça o download e a intalação do nodejs.<br>
-https://nodejs.org/en/download<br>
-Faça o download ou o clone deste repositório. É recomendado ter o git instalado para futuras atualizações:<br>
-https://git-scm.com/downloads<br>
-Comando para clonar este reposítorio:	
-</li>
-</ul>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>git clone https://github.com/renatoiub/whatsapp-hard-api-node</pre><div class="zeroclipboard-container">
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="git clone https://github.com/renatoiub/whatsapp-hard-api-node" tabindex="0" role="button">
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
-    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
-    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
-</svg>
-    </clipboard-copy>
-  </div></div>
+**Desenvolvida por [Saraiva.AI](https://saraiva.ai) - A maior livraria de inteligência artificial do Brasil**
 
-  <ul dir="auto">
-<li>Instalação de dependências</li>
-</ul>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>npm i </pre><div class="zeroclipboard-container">
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="npm i or npm i --force" tabindex="0" role="button">
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
-    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
-    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
-</svg>
-    </clipboard-copy>
-  </div></div>
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](Dockerfile)
 
-  <ul dir="auto">
-<li>Renomear o arquivo env e configurar:
-Renomear o arquivo .env.example para <b>.env</b>	<br>
-Colocar no env a porta da aplicação, e os mimetypes que você deseja enviar via API. Caso opite por proteger as rotas, terá que enviar o token Bearer token (Authorization: Bearer RANDOM_STRING_HERE) nas requisições.<br>
-<br>
-</li>
-</ul>
+</div>
 
- <ul dir="auto">
-<li>Start da aplicação:</li>
-</ul>
-<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>npm start</pre><div class="zeroclipboard-container">
-    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="npm start" tabindex="0" role="button">
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
-    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
-</svg>
-      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
-    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
-</svg>
-    </clipboard-copy>
-  </div></div>
+---
 
-<h2 tabindex="-1" dir="auto"><a id="user-content-infrastructure" class="anchor" aria-hidden="true" tabindex="-1" href="#infrastructure"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Intalação</h2>
+## 📋 Índice
 
-<h3 tabindex="-1" dir="auto" data-react-autofocus="true"><a id="user-content-1-docker-installation" class="anchor" aria-hidden="true" tabindex="-1" href="#1-docker-installation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Docker install:</h3>
+- [Sobre o Projeto](#-sobre-o-projeto)
+- [Características](#-características)
+- [Requisitos](#-requisitos)
+- [Instalação](#-instalação)
+  - [Via NPM](#via-npm)
+  - [Via Docker](#via-docker)
+  - [Via Docker Compose](#via-docker-compose)
+- [Configuração](#-configuração)
+- [Uso](#-uso)
+- [Documentação da API](#-documentação-da-api)
+- [Recursos Disponíveis](#-recursos-disponíveis)
+- [Webhooks](#-webhooks)
+- [Segurança](#-segurança)
+- [Arquitetura](#-arquitetura)
+- [Contribuindo](#-contribuindo)
+- [Suporte](#-suporte)
+- [Licença](#-licença)
 
-<ul dir="auto">
-<li>Crie uma imagem apartir do Dockerfile.<br></li>
-<li>Edite o arquivo conforme a sua necessidade.<br></li>
-<li>Comando para iniciar a imagem:<br>
-docker build -t hard-api-whatsapp . <br>
-<li>Certifique-se de estar na pasta onde o Dockerfile está</li>	
-</li>
+---
 
-</ul>
+## 🎯 Sobre o Projeto
 
-<h2 tabindex="-1" dir="auto" data-react-autofocus="true"><a id="user-content-whatsapp-api-nodejs" class="anchor" aria-hidden="true" tabindex="-1" href="#whatsapp-api-nodejs"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Manager da API</h2>
-<p>Contribua com o projeto e tenha acesso ao manager da api</p>
-<br>
+A **Saraiva WhatsApp API** é uma implementação profissional e robusta baseada no [WhiskeySockets Baileys](https://github.com/WhiskeySockets/Baileys), oferecendo um serviço REST API completo para controlar todas as funções do WhatsApp de forma programática.
 
-![link About do site](https://github.com/renatoiub/whatsapp-hard-api-node/blob/v1.6.0/src/public/img/manager.jpg)
-<br>
-<h2><a href="https://zapapi.hardcodebr.com.br" target="_blank">Teste a api com o Manager!</a></h2>
+Esta solução permite criar:
+- 💬 Sistemas de chat multi-atendimento
+- 🤖 Bots inteligentes de atendimento
+- 📊 Plataformas de CRM integradas
+- 🔔 Sistemas de notificação em massa
+- 📱 Aplicações que necessitem integração com WhatsApp
 
-<br>
-<h2 tabindex="-1" dir="auto" data-react-autofocus="true"><a id="user-content-whatsapp-api-nodejs" class="anchor" aria-hidden="true" tabindex="-1" href="#whatsapp-api-nodejs"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Eventos do WEbhook:</h2>
+**Não é necessário conhecimento em Node.js!** Basta iniciar o servidor e fazer requisições na linguagem de sua preferência.
 
-connection.update <br>
-qrCode.update<br>
-presence.update<br>
-contacts.upsert<br>
-chats.upsert<br>
-chats.delete<br>
-messages.update<br>
-messages.upsert<br>
-call.events<br>
-groups.upsert<br>
-groups.update<br>
-group-participants.update<br>
+---
 
-<h2 tabindex="-1" dir="auto" data-react-autofocus="true"><a id="user-content-whatsapp-api-nodejs" class="anchor" aria-hidden="true" tabindex="-1" href="#whatsapp-api-nodejs"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Documentação:</h2>
+## ✨ Características
 
-<ul dir="auto">
+### 🔥 Principais Funcionalidades
 
-<li>Documentação completa da API disponível via Postman Collection</li>
-</ul>
+- ✅ **Multi-Device**: Suporte completo ao protocolo multi-dispositivos do WhatsApp
+- ✅ **Multi-Instância**: Gerencie múltiplas contas WhatsApp simultaneamente
+- ✅ **Zero Banco de Dados**: Arquitetura leve sem dependência de banco de dados
+- ✅ **API RESTful**: Interface moderna e padronizada
+- ✅ **Webhooks**: Sistema completo de eventos em tempo real
+- ✅ **Docker Ready**: Pronto para deploy em containers
+- ✅ **Segurança**: Autenticação via token Bearer
+- ✅ **Rate Limiting**: Proteção contra abuso de API
+- ✅ **Logs Estruturados**: Sistema profissional de logging
+- ✅ **Documentação Swagger**: API totalmente documentada
 
-<br>
-<br>
-<h2 tabindex="-1" dir="auto" data-react-autofocus="true"><a id="user-content-whatsapp-api-nodejs" class="anchor" aria-hidden="true" tabindex="-1" href="#whatsapp-api-nodejs"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Envios e Recursos:</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-	<tr>
-<td>Conexão via qr_code</td>
-<td>✔</td>
-</tr>
-<tr>
-	<tr>
-<td>Conexção via código de emparelhamento</td>
-<td>✔</td>
-</tr>
-<tr>
-<tr>
-<td>Envia texto</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>Send Buttons</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>Send Template</td>
-<td>❌</td>
-</tr>
-<tr>
-<td>Arquivos: audio - video - image - document - gif <br><br>base64: <code>true</code></td>
-<td>✔</td>
-</tr>
-	<tr>
-<td>Send Media URL</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>Send Media File</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>Convert audio and video to whatsapp format</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>Resposta de mensagem</td>
-<td>✔</td>
-</tr>
-	<tr>
-<td>Envia presença: Digitando.. Gravando audio..</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>Send Location</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>Send List (beta)</td>
-<td><font style="color:green">✔</font></td>
-</tr>
-<tr>
-<td>Send Link Preview</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>Send Contact</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>Send Reaction - emoji</td>
-<td>✔</td>
-</tr>
-	<tr>
-<td>Get contacts</td>
-<td>✔</td>
-</tr>
-	<tr>
-<td>Grupos: Cria, entra, sai, adiciona contatos, remove contatos e admins. Marcação fantasma (ghostMention) true</td>
-<td>✔</td>
-</tr>
-</tbody>
-</table>
+### 🎨 Conexão Flexível
 
-<h2 tabindex="-1" dir="auto" data-react-autofocus="true"><a id="user-content-whatsapp-api-nodejs" class="anchor" aria-hidden="true" tabindex="-1" href="#whatsapp-api-nodejs"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Informações adicionais:</h2>
-A api não usa nenhum banco de dados.<br>
-A api é multidevices e aceita vários números conectados<br>
-O consumo médio de memória varia de quantidade de instâncias e é extremamente leve<br>
+- 📱 QR Code tradicional
+- 🔐 Código de emparelhamento (pairing code)
+- 🔄 Restauração automática de sessões
 
+### 📦 Recursos de Envio
 
-<br><br>
-Contribua com o projeto e receba atualizaçoes:<br>
-Contato:<br>
-Developer: https://github.com/renatoiub/<br>
-Email: renatoiub@live.com<br>
-Instagram: @renatoiub.<br>
-Contribua com o projeto e receba atualizações:<br>
-Pix: empresa@estoqueintegrado.com<br>
+| Recurso | Status | Observações |
+|---------|--------|-------------|
+| Mensagens de texto | ✅ | Suporte completo |
+| Imagens | ✅ | JPG, PNG, GIF |
+| Vídeos | ✅ | Conversão automática para MP4 |
+| Áudios | ✅ | Conversão para formato WhatsApp |
+| Documentos | ✅ | PDF, DOC, XLS, etc |
+| Localização | ✅ | Coordenadas GPS |
+| Contatos | ✅ | VCard |
+| Listas | ✅ | Lista de opções |
+| Reações | ✅ | Emojis |
+| Link Preview | ✅ | Prévia de links |
+| Responder mensagens | ✅ | Reply/Quote |
+| Presença | ✅ | Digitando, Gravando áudio |
+| Buttons | ⏳ | Em desenvolvimento |
+| Templates | ⏳ | Em desenvolvimento |
 
+### 👥 Recursos de Grupos
+
+- ✅ Criar grupos
+- ✅ Adicionar/Remover participantes
+- ✅ Promover/Rebaixar administradores
+- ✅ Sair de grupos
+- ✅ Entrar via convite
+- ✅ Ghost mention (menção fantasma)
+- ✅ Obter informações do grupo
+- ✅ Configurações de grupo
+
+---
+
+## 📦 Requisitos
+
+- **Node.js** 18.x ou superior
+- **NPM** ou **Yarn**
+- **FFmpeg** (para conversão de mídia - instalado automaticamente)
+- **Docker** (opcional, para deploy em container)
+
+---
+
+## 🚀 Instalação
+
+### Via NPM
+
+1. **Clone o repositório**
+
+```bash
+git clone https://github.com/saraivabr/saraiva-whatsapp-api.git
+cd saraiva-whatsapp-api
+```
+
+2. **Instale as dependências**
+
+```bash
+npm install
+```
+
+3. **Configure as variáveis de ambiente**
+
+```bash
+cp .env.example .env
+```
+
+Edite o arquivo `.env` conforme suas necessidades (veja [Configuração](#-configuração))
+
+4. **Inicie o servidor**
+
+```bash
+# Produção
+npm start
+
+# Desenvolvimento (com hot-reload)
+npm run dev
+```
+
+### Via Docker
+
+1. **Build da imagem**
+
+```bash
+docker build -t saraiva-whatsapp-api .
+```
+
+2. **Execute o container**
+
+```bash
+docker run -p 3333:3333 \
+  -e TOKEN=seu_token_aqui \
+  -e PROTECT_ROUTES=true \
+  -v $(pwd)/sessions:/app/sessions \
+  saraiva-whatsapp-api
+```
+
+### Via Docker Compose
+
+```bash
+# Inicie todos os serviços
+docker-compose up -d
+
+# Visualize os logs
+docker-compose logs -f
+
+# Pare os serviços
+docker-compose down
+```
+
+---
+
+## ⚙️ Configuração
+
+### Arquivo `.env`
+
+```env
+# ==================================
+# CONFIGURAÇÃO DE SEGURANÇA
+# ==================================
+TOKEN=seu_token_super_secreto_aqui
+PROTECT_ROUTES=true
+ADMINTOKEN=token_admin_diferente
+MAX_INSTANCES=50
+
+# ==================================
+# CONFIGURAÇÃO DA APLICAÇÃO
+# ==================================
+PORT=3333
+APP_URL=http://localhost:3333
+NODE_ENV=production
+RESTORE_SESSIONS_ON_START_UP=true
+LOG_LEVEL=info
+
+# ==================================
+# CONFIGURAÇÃO DE MÍDIA
+# ==================================
+# Não adicione espaços entre os mimetypes
+videoMimeTypes=video/mp4,video/avi,video/mkv,video/quicktime
+audioMimeTypes=audio/mp3,audio/wav,audio/ogg,audio/mpeg
+documentMimeTypes=application/pdf,application/msword
+imageMimeTypes=image/jpeg,image/png,image/gif
+
+# Formato de saída de áudio (OGG ou MP3)
+DEFAULT_AUDIO_OUTPUT=OGG
+
+# ==================================
+# CONFIGURAÇÃO DO MANAGER
+# ==================================
+USER=admin
+PASSWORD=senha_segura_aqui
+SESSION_SECRET=chave_secreta_sessao
+COOKIE_SECRET=chave_secreta_cookie
+```
+
+### Variáveis Importantes
+
+| Variável | Descrição | Padrão |
+|----------|-----------|--------|
+| `TOKEN` | Token de autenticação Bearer | - |
+| `PROTECT_ROUTES` | Habilitar proteção de rotas | `true` |
+| `PORT` | Porta do servidor | `3333` |
+| `MAX_INSTANCES` | Máximo de instâncias simultâneas | `50` |
+| `RESTORE_SESSIONS_ON_START_UP` | Restaurar sessões ao iniciar | `true` |
+| `LOG_LEVEL` | Nível de log (silent, error, warn, info, debug) | `info` |
+
+---
+
+## 📖 Uso
+
+### 1. Criar uma instância
+
+```bash
+POST /instance/create
+Authorization: Bearer SEU_TOKEN
+
+{
+  "key": "minha-instancia",
+  "webhook": "https://seu-webhook.com/eventos"
+}
+```
+
+### 2. Obter QR Code
+
+```bash
+GET /instance/qr?key=minha-instancia
+Authorization: Bearer SEU_TOKEN
+```
+
+### 3. Enviar mensagem de texto
+
+```bash
+POST /message/text
+Authorization: Bearer SEU_TOKEN
+
+{
+  "key": "minha-instancia",
+  "id": "5511999999999",
+  "message": "Olá! Esta é uma mensagem via API."
+}
+```
+
+### 4. Enviar imagem
+
+```bash
+POST /message/image
+Authorization: Bearer SEU_TOKEN
+
+{
+  "key": "minha-instancia",
+  "id": "5511999999999",
+  "image": "https://exemplo.com/imagem.jpg",
+  "caption": "Confira esta imagem!"
+}
+```
+
+---
+
+## 📚 Documentação da API
+
+Acesse a documentação interativa Swagger em:
+
+```
+http://localhost:3333/api-docs
+```
+
+### Endpoints Principais
+
+#### Instâncias
+- `POST /instance/create` - Criar nova instância
+- `GET /instance/qr` - Obter QR Code
+- `GET /instance/qrbase64` - Obter QR Code em base64
+- `POST /instance/logout` - Desconectar instância
+- `DELETE /instance/delete` - Deletar instância
+- `GET /instance/info` - Informações da instância
+
+#### Mensagens
+- `POST /message/text` - Enviar texto
+- `POST /message/image` - Enviar imagem
+- `POST /message/video` - Enviar vídeo
+- `POST /message/audio` - Enviar áudio
+- `POST /message/document` - Enviar documento
+- `POST /message/location` - Enviar localização
+- `POST /message/contact` - Enviar contato
+- `POST /message/list` - Enviar lista
+- `POST /message/reaction` - Enviar reação
+
+#### Grupos
+- `POST /group/create` - Criar grupo
+- `POST /group/add` - Adicionar participante
+- `POST /group/remove` - Remover participante
+- `POST /group/promote` - Promover admin
+- `POST /group/demote` - Rebaixar admin
+- `POST /group/leave` - Sair do grupo
+- `GET /group/info` - Informações do grupo
+
+#### Diversos
+- `GET /misc/contacts` - Listar contatos
+- `GET /misc/chats` - Listar conversas
+- `GET /status` - Status da API
+- `GET /health` - Healthcheck
+
+---
+
+## 🔔 Webhooks
+
+Configure um webhook na criação da instância para receber eventos em tempo real:
+
+### Eventos Disponíveis
+
+```javascript
+{
+  "event": "connection.update",
+  "instance": "minha-instancia",
+  "data": {
+    "connection": "open",
+    "qr": null
+  }
+}
+```
+
+#### Lista de Eventos
+
+- `connection.update` - Atualização de conexão
+- `qrCode.update` - Novo QR Code disponível
+- `messages.upsert` - Nova mensagem recebida
+- `messages.update` - Mensagem atualizada
+- `presence.update` - Atualização de presença
+- `contacts.upsert` - Contatos atualizados
+- `chats.upsert` - Conversas atualizadas
+- `chats.delete` - Conversa deletada
+- `groups.upsert` - Grupo criado/atualizado
+- `groups.update` - Informações de grupo atualizadas
+- `group-participants.update` - Participantes atualizados
+- `call.events` - Eventos de chamada
+
+---
+
+## 🔒 Segurança
+
+### Autenticação
+
+Todas as rotas são protegidas por autenticação Bearer Token quando `PROTECT_ROUTES=true`:
+
+```bash
+Authorization: Bearer SEU_TOKEN
+```
+
+### Rate Limiting
+
+A API implementa rate limiting para prevenir abuso:
+- **Geral**: 100 requisições por 15 minutos
+- **Auth**: 5 tentativas por 15 minutos
+
+### Boas Práticas
+
+- ✅ Use HTTPS em produção
+- ✅ Mantenha seus tokens em segredo
+- ✅ Implemente validação de webhook
+- ✅ Use variáveis de ambiente
+- ✅ Atualize regularmente as dependências
+- ✅ Monitore os logs de acesso
+
+---
+
+## 🏗️ Arquitetura
+
+```
+saraiva-whatsapp-api/
+├── src/
+│   ├── api/
+│   │   ├── class/          # Classes principais (Session, Instance)
+│   │   ├── controllers/    # Controladores de rotas
+│   │   ├── middlewares/    # Middlewares (auth, error, rate-limit)
+│   │   ├── routes/         # Definição de rotas
+│   │   ├── models/         # Modelos de dados
+│   │   ├── helpers/        # Funções auxiliares
+│   │   └── errors/         # Tratamento de erros
+│   ├── config/             # Configurações
+│   ├── public/             # Arquivos estáticos
+│   └── server.js           # Entry point
+├── sessions/               # Dados de sessão (gitignored)
+├── temp/                   # Arquivos temporários
+├── tests/                  # Testes automatizados
+├── .env.example            # Exemplo de variáveis de ambiente
+├── docker-compose.yml      # Configuração Docker Compose
+├── Dockerfile              # Imagem Docker
+└── package.json            # Dependências
+```
+
+### Stack Tecnológico
+
+- **Runtime**: Node.js 18+
+- **Framework**: Express.js
+- **WhatsApp**: @whiskeysockets/baileys
+- **Logging**: Pino
+- **Validação**: Express-validator
+- **Segurança**: Helmet, CORS, express-rate-limit
+- **Mídia**: FFmpeg, Sharp
+- **Documentação**: Swagger/OpenAPI
+
+---
+
+## 🤝 Contribuindo
+
+Contribuições são sempre bem-vindas! Veja como você pode ajudar:
+
+1. **Fork** o projeto
+2. **Crie** uma branch para sua feature (`git checkout -b feature/MinhaFeature`)
+3. **Commit** suas mudanças (`git commit -m 'Adiciona MinhaFeature'`)
+4. **Push** para a branch (`git push origin feature/MinhaFeature`)
+5. **Abra** um Pull Request
+
+Leia nosso [Guia de Contribuição](CONTRIBUTING.md) para mais detalhes.
+
+---
+
+## 💡 Casos de Uso
+
+- **E-commerce**: Notificações de pedidos e atendimento
+- **Suporte**: Sistema de tickets via WhatsApp
+- **Marketing**: Campanhas e newsletters
+- **Automação**: Bots inteligentes com IA
+- **Integração**: CRMs, ERPs e sistemas legados
+- **Alertas**: Monitoramento e notificações críticas
+
+---
+
+## 📊 Performance
+
+- **Consumo de memória**: ~50MB por instância
+- **Latência**: <100ms em operações locais
+- **Throughput**: 1000+ mensagens/minuto
+- **Uptime**: 99.9% com configuração adequada
+
+---
+
+## 🐛 Problemas Conhecidos
+
+Veja a lista de [Issues](https://github.com/saraivabr/saraiva-whatsapp-api/issues) para problemas conhecidos e solicitações de recursos.
+
+---
+
+## 📞 Suporte
+
+### Desenvolvido por Saraiva.AI
+
+- 🌐 **Website**: [https://saraiva.ai](https://saraiva.ai)
+- 📧 **Email**: fellipesaraivabarbosa@gmail.com
+- 💼 **LinkedIn**: [Fellipe Saraiva](https://linkedin.com/in/fellipesaraiva)
+- 🐙 **GitHub**: [@saraivabr](https://github.com/saraivabr)
+
+### Comunidade
+
+- 💬 Dúvidas? Abra uma [Issue](https://github.com/saraivabr/saraiva-whatsapp-api/issues)
+- 🐛 Encontrou um bug? [Reporte aqui](https://github.com/saraivabr/saraiva-whatsapp-api/issues/new)
+- 💡 Sugestões? Adoramos feedback!
+
+---
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+## 🙏 Agradecimentos
+
+Este projeto foi inspirado e construído sobre o trabalho de:
+
+- [WhiskeySockets/Baileys](https://github.com/WhiskeySockets/Baileys) - Biblioteca base para WhatsApp
+- [salman0ansari/whatsapp-api-nodejs](https://github.com/salman0ansari/whatsapp-api-nodejs) - Projeto original
+- Toda a comunidade open source
+
+---
+
+## 🌟 Estrelas
+
+Se este projeto foi útil para você, considere dar uma ⭐!
+
+---
+
+<div align="center">
+
+**Desenvolvido com ❤️ pela [Saraiva.AI](https://saraiva.ai)**
+
+*Transformando a comunicação através da tecnologia*
+
+</div>
