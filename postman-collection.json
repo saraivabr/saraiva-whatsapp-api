@@ -1,0 +1,551 @@
+{
+  "info": {
+    "name": "Saraiva WhatsApp API - Collection Completa",
+    "description": "Collection completa com todos os endpoints da Saraiva WhatsApp API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{API_TOKEN}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": "http://localhost:3333",
+      "type": "string"
+    },
+    {
+      "key": "API_TOKEN",
+      "value": "SEU_TOKEN_AQUI",
+      "type": "string"
+    },
+    {
+      "key": "INSTANCE_KEY",
+      "value": "minha-instancia",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "🏥 Health & Status",
+      "item": [
+        {
+          "name": "Health Check Básico",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/health",
+              "host": ["{{BASE_URL}}"],
+              "path": ["health"]
+            }
+          }
+        },
+        {
+          "name": "Health Check Detalhado",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/health/detailed",
+              "host": ["{{BASE_URL}}"],
+              "path": ["health", "detailed"]
+            }
+          }
+        },
+        {
+          "name": "Status da API",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/status",
+              "host": ["{{BASE_URL}}"],
+              "path": ["status"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "📱 Instâncias",
+      "item": [
+        {
+          "name": "Criar Instância",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"{{INSTANCE_KEY}}\",\n  \"webhook\": \"https://seu-webhook.com/eventos\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/instance/create",
+              "host": ["{{BASE_URL}}"],
+              "path": ["instance", "create"]
+            }
+          }
+        },
+        {
+          "name": "Obter QR Code",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/instance/qr?key={{INSTANCE_KEY}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["instance", "qr"],
+              "query": [
+                {
+                  "key": "key",
+                  "value": "{{INSTANCE_KEY}}"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "QR Code Base64",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/instance/qrbase64?key={{INSTANCE_KEY}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["instance", "qrbase64"],
+              "query": [
+                {
+                  "key": "key",
+                  "value": "{{INSTANCE_KEY}}"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Info da Instância",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/instance/info?key={{INSTANCE_KEY}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["instance", "info"],
+              "query": [
+                {
+                  "key": "key",
+                  "value": "{{INSTANCE_KEY}}"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"{{INSTANCE_KEY}}\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/instance/logout",
+              "host": ["{{BASE_URL}}"],
+              "path": ["instance", "logout"]
+            }
+          }
+        },
+        {
+          "name": "Deletar Instância",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/instance/delete?key={{INSTANCE_KEY}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["instance", "delete"],
+              "query": [
+                {
+                  "key": "key",
+                  "value": "{{INSTANCE_KEY}}"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "💬 Mensagens",
+      "item": [
+        {
+          "name": "Enviar Texto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"{{INSTANCE_KEY}}\",\n  \"id\": \"5511999999999\",\n  \"message\": \"Olá! Esta é uma mensagem de teste da Saraiva WhatsApp API 🚀\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/message/text",
+              "host": ["{{BASE_URL}}"],
+              "path": ["message", "text"]
+            }
+          }
+        },
+        {
+          "name": "Enviar Imagem",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"{{INSTANCE_KEY}}\",\n  \"id\": \"5511999999999\",\n  \"image\": \"https://saraiva.ai/images/banner.jpg\",\n  \"caption\": \"Confira nossa nova promoção! 🎉\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/message/image",
+              "host": ["{{BASE_URL}}"],
+              "path": ["message", "image"]
+            }
+          }
+        },
+        {
+          "name": "Enviar Vídeo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"{{INSTANCE_KEY}}\",\n  \"id\": \"5511999999999\",\n  \"video\": \"https://saraiva.ai/videos/demo.mp4\",\n  \"caption\": \"Veja este tutorial! 📹\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/message/video",
+              "host": ["{{BASE_URL}}"],
+              "path": ["message", "video"]
+            }
+          }
+        },
+        {
+          "name": "Enviar Áudio",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"{{INSTANCE_KEY}}\",\n  \"id\": \"5511999999999\",\n  \"audio\": \"https://saraiva.ai/audio/message.mp3\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/message/audio",
+              "host": ["{{BASE_URL}}"],
+              "path": ["message", "audio"]
+            }
+          }
+        },
+        {
+          "name": "Enviar Documento",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"{{INSTANCE_KEY}}\",\n  \"id\": \"5511999999999\",\n  \"document\": \"https://saraiva.ai/files/catalogo.pdf\",\n  \"fileName\": \"catalogo-2024.pdf\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/message/document",
+              "host": ["{{BASE_URL}}"],
+              "path": ["message", "document"]
+            }
+          }
+        },
+        {
+          "name": "Enviar Localização",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"{{INSTANCE_KEY}}\",\n  \"id\": \"5511999999999\",\n  \"latitude\": \"-23.550520\",\n  \"longitude\": \"-46.633308\",\n  \"name\": \"Saraiva.AI\",\n  \"address\": \"Av. Paulista, 1000 - São Paulo, SP\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/message/location",
+              "host": ["{{BASE_URL}}"],
+              "path": ["message", "location"]
+            }
+          }
+        },
+        {
+          "name": "Enviar Contato",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"{{INSTANCE_KEY}}\",\n  \"id\": \"5511999999999\",\n  \"vcard\": \"BEGIN:VCARD\\nVERSION:3.0\\nFN:Fellipe Saraiva\\nTEL:+55119999999999\\nEND:VCARD\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/message/contact",
+              "host": ["{{BASE_URL}}"],
+              "path": ["message", "contact"]
+            }
+          }
+        },
+        {
+          "name": "Enviar Reação",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"{{INSTANCE_KEY}}\",\n  \"id\": \"5511999999999\",\n  \"messageId\": \"MESSAGE_ID_AQUI\",\n  \"emoji\": \"❤️\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/message/reaction",
+              "host": ["{{BASE_URL}}"],
+              "path": ["message", "reaction"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "👥 Grupos",
+      "item": [
+        {
+          "name": "Criar Grupo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"{{INSTANCE_KEY}}\",\n  \"name\": \"Grupo Saraiva.AI\",\n  \"participants\": [\n    \"5511999999991\",\n    \"5511999999992\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/group/create",
+              "host": ["{{BASE_URL}}"],
+              "path": ["group", "create"]
+            }
+          }
+        },
+        {
+          "name": "Info do Grupo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/group/info?key={{INSTANCE_KEY}}&groupId=GROUP_ID_AQUI",
+              "host": ["{{BASE_URL}}"],
+              "path": ["group", "info"],
+              "query": [
+                {
+                  "key": "key",
+                  "value": "{{INSTANCE_KEY}}"
+                },
+                {
+                  "key": "groupId",
+                  "value": "GROUP_ID_AQUI"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Adicionar Participante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"{{INSTANCE_KEY}}\",\n  \"groupId\": \"GROUP_ID_AQUI\",\n  \"participants\": [\n    \"5511999999993\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/group/add",
+              "host": ["{{BASE_URL}}"],
+              "path": ["group", "add"]
+            }
+          }
+        },
+        {
+          "name": "Remover Participante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"{{INSTANCE_KEY}}\",\n  \"groupId\": \"GROUP_ID_AQUI\",\n  \"participants\": [\n    \"5511999999993\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/group/remove",
+              "host": ["{{BASE_URL}}"],
+              "path": ["group", "remove"]
+            }
+          }
+        },
+        {
+          "name": "Promover a Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"{{INSTANCE_KEY}}\",\n  \"groupId\": \"GROUP_ID_AQUI\",\n  \"participants\": [\n    \"5511999999993\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/group/promote",
+              "host": ["{{BASE_URL}}"],
+              "path": ["group", "promote"]
+            }
+          }
+        },
+        {
+          "name": "Sair do Grupo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"{{INSTANCE_KEY}}\",\n  \"groupId\": \"GROUP_ID_AQUI\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/group/leave",
+              "host": ["{{BASE_URL}}"],
+              "path": ["group", "leave"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "📞 Diversos",
+      "item": [
+        {
+          "name": "Listar Contatos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/misc/contacts?key={{INSTANCE_KEY}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["misc", "contacts"],
+              "query": [
+                {
+                  "key": "key",
+                  "value": "{{INSTANCE_KEY}}"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Listar Conversas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/misc/chats?key={{INSTANCE_KEY}}",
+              "host": ["{{BASE_URL}}"],
+              "path": ["misc", "chats"],
+              "query": [
+                {
+                  "key": "key",
+                  "value": "{{INSTANCE_KEY}}"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
